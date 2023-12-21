@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const Add = ({updateCourses}) => {
@@ -28,7 +28,7 @@ const Add = ({updateCourses}) => {
   };
 
   // Handle form submission
-    const handleClick = async (e) => {
+    const handleAdd = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8800/course", course);
@@ -50,80 +50,119 @@ const Add = ({updateCourses}) => {
       <div className="wrapper">
         <h2 className="add__header">Add New Course</h2>
         <form className="add__form">
-          {/* <label>Upload Image</label>
+          <label className="add__label" htmlFor="image">Upload Cover Image:</label>
           <input
-            type="file"
-            name="file"
-            onChange={handleChange}
-          /> */}
-          <label>Course Cover Image:</label>
-          <input
+            className="add__input-text"
             type="text"
+            id="image"
             name="image"
             value={course.image}
             onChange={handleChange}
+            aria-label="Course Cover Image"
           />
-          <label>Title of Course:</label>
+
+          <label className="add__label" htmlFor="title">Title of Course:</label>
           <input
+            className="add__input-text"
             type="text"
+            id="title"
             name="title"
             value={course.title}
+            placeholder="Web Development for Beginners "
             onChange={handleChange}
+            aria-label="Title of Course"
           />
-          <label>Course Description:</label>
-          <input
-            type="text"
+
+          <label className="add__label" htmlFor="description">Course Description:</label>
+          <textarea
+            className="add__input-textarea"
+            id="description"
             name="description"
             value={course.description}
+            placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             onChange={handleChange}
-          />
-          <label>Name of Creator:</label>
+            aria-label="Lorem20" 
+          ></textarea>
+
+          <label className="add__label" htmlFor="creator">Name of Creator:</label>
           <input
+            className="add__input-text"
             type="text"
+            id="creator"
             name="creator"
             value={course.creator}
+            placeholder="John Doe"
             onChange={handleChange}
+            aria-label="Name of Creator"
           />
-          <label>Price:</label>
+
+          <label className="add__label" htmlFor="price">Price:</label>
           <input
+            className="add__input-text"
             type="number"
+            id="price"
             name="price"
             value={course.price}
+            placeholder="200"
             onChange={handleChange}
+            aria-label="Price"
           />
-          <label>Number of Lessons:</label>
+
+          <label className="add__label" htmlFor="lessons">Number of Lessons:</label>
           <input
+            className="add__input-text"
             type="number"
+            id="lessons"
             name="lessons"
             value={course.lessons}
+            placeholder="20"
             onChange={handleChange}
+            aria-label="Number of Lessons"
           />
-          <label>Duration (in months):</label>
+
+          <label className="add__label" htmlFor="duration">Duration (in months):</label>
           <input
-            type="text"
+            className="add__input-text"
+            type="number"
+            id="duration"
             name="duration"
             value={course.duration}
+            placeholder="2"
             onChange={handleChange}
+            aria-label="Duration"
           />
-          <label>Course Level:</label>
+
+          <label className="add__label" htmlFor="level">Course Level:</label>
           <select
+            className="add__input-select"
+            id="level"
             name="level"
             value={course.level}
             onChange={handleChange}
+            aria-label="Course Level"
           >
+            <option value="">--Choose Difficulty--</option>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
           </select>
-          <label>Language:</label>
+
+          <label className="add__label" htmlFor="language">Language:</label>
           <input
+            className="add__input-text"
             type="text"
+            id="language"
             name="language"
             value={course.language}
+            placeholder="English"
             onChange={handleChange}
+            aria-label="Language"
           />
 
-          <button onClick={handleClick}>Add Course</button>
+          <button className="button button--add" onClick={handleAdd}>Add Course</button>
+          <button className="button button--back">
+            <Link className='button-link' to="/">Back</Link>
+          </button>
         </form>
       </div>
     </div>

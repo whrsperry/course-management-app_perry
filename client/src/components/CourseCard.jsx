@@ -36,11 +36,7 @@ const CourseCard = (props) => {
                 <img className="course-card__details-icon" src={arrowIcon} alt="arrow icon" />
               </Link>
             </button>
-            <button 
-              className='button button--delete' 
-              onClick={props.handleDelete}>
-                Delete Course
-            </button>
+            <button className='button button--delete' onClick={props.handleDelete}>Delete Course</button>
           </div>
         </div>
       </div>

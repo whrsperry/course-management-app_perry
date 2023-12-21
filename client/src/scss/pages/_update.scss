@@ -4,7 +4,7 @@
 @use '../tools/media-queries' as mq;
 @use '../tools/function' as func;
 
-.add {
+.update {
   background-color: clr.$green;
 
   &__header {
