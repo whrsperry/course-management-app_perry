@@ -1,0 +1,90 @@
+@use '../settings/color' as clr;
+@use '../settings/font-family' as ff;
+@use '../settings/font-weight' as fw;
+@use '../tools/media-queries' as mq;
+@use '../tools/function' as func;
+
+
+
+.course-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.course-form-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.course-form {
+  background-color: #fff;
+  width: 60%; /* Adjust the width as needed */
+  max-height: 80%; /* Set a maximum height to allow for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+
+  h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:last-child {
+        background-color: #ccc;
+        color: #333;
+
+        &:hover {
+          background-color: #999;
+        }
+      }
+    }
+  }
+}

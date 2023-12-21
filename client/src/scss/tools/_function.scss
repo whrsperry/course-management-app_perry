@@ -1,0 +1,3 @@
+@function getem($base-size, $illust-lheight) {
+  @return calc($illust-lheight / $base-size) * 1em;
+}

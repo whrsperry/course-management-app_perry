@@ -1,0 +1,16 @@
+@use '../settings/color' as clr;
+@use '../settings/font-family' as ff;
+@use '../tools/media-queries' as mq;
+
+html {
+  color: clr.$black;
+  font-family: ff.$poppins;
+  font-size: 10px;
+  font-feature-settings: 'palt';
+  @media screen and (max-width: 980px) {
+    min-width: 980px;
+  }
+  @include mq.sp {
+    min-width: 100%;
+  }
+}

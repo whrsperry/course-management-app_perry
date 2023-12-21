@@ -1,0 +1,90 @@
+@use '../settings/color' as clr;
+@use '../settings/font-family' as ff;
+@use '../settings/font-weight' as fw;
+@use '../tools/media-queries' as mq;
+@use '../tools/function' as func;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: clr.$white;
+  z-index: 999;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  &__logo-image {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  &__logo-learn {
+    color: clr.$primary;
+    font: fw.$bold 3rem ff.$inter;
+  }
+
+  &__link-list {
+    display: flex;
+    margin-right: 30px;
+  }
+
+  &__link {
+    color: clr.$gray;
+    font: fw.$regular 2.2rem ff.$poppins;
+
+    &:hover {
+      color: clr.$primary;
+    }
+
+    &.active {
+      font-weight: fw.$bold;
+      background: linear-gradient(96deg, #29A354 3.79%, rgba(193, 67, 67, 0.1) 136.56%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__search-input {
+    padding: 5px;
+    color: clr.$gray;
+    font: fw.$regular 1.2rem ff.$poppins;
+    border-radius: 2px;
+    border: 1px solid clr.$primary;
+
+    &:focus {
+      border: 2px solid clr.$green;
+      outline: none;
+    }
+  }
+
+  &__search-button {
+    margin-left: 5px;
+    padding: 6px;
+    color: clr.$white;
+    font: fw.$regular 1.2rem ff.$poppins;
+    background-color: clr.$primary;
+    border-radius: 2px;
+    border: none;
+    transition: 0.2s ease-in;
+
+    &:hover {
+      background-color: clr.$green;
+    }
+  }
+}

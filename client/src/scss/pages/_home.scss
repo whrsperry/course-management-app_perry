@@ -1,0 +1,102 @@
+@use '../settings/color' as clr;
+@use '../settings/font-family' as ff;
+@use '../settings/font-weight' as fw;
+@use '../tools/media-queries' as mq;
+@use '../tools/function' as func;
+
+.home {
+  background-color: clr.$background;
+  height: 100vh;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__text-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bulb-image {
+    width: 85px;
+    height: 85px;
+  }
+
+  &__header {
+    margin-top: 30px;
+    color: clr.$black;
+    font: fw.$bold 7rem ff.$lexend;
+    line-height: func.getem(90, 112);
+    text-align: left;
+  }
+
+  &__span {
+    font: fw.$bold 7rem ff.$lexend;
+    background: linear-gradient(95deg, #45D979 26.15%, rgba(178, 7, 59, 0.3) 95.75%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__description {
+    margin-top: 30px;
+    color: clr.$gray;
+    font: fw.$medium 2.2rem ff.$poppins;
+    line-height: func.getem(22, 33);
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+
+  &__image-content {
+    width: 40%;
+    flex-grow: 1;
+  }
+
+  &__girl-image {
+    width: 600px;
+    height: 615px;
+    object-fit: contain;
+  }
+
+  &__course-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    // padding-top: 110px;
+    padding: 70px 0 150px;
+  }
+
+  &__course-list-header-container {
+    margin-bottom: 60px;
+  }
+
+  &__course-list-header {
+    color: clr.$black;
+    font: fw.$bold 5rem ff.$lexend;
+    text-align: center;
+  }
+
+  &__course-list-description {
+    margin-top: 30px;
+    color: clr.$gray;
+    font: fw.$medium 2.2rem ff.$poppins;
+    line-height: func.getem(22, 33);
+    text-align: center;
+  }
+
+  &__course-list-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__course-list-button {
+    margin-bottom: 30px;
+  }
+}
