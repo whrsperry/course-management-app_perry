@@ -8,11 +8,11 @@
   width: 400px;
   max-height: 600px;
   border-radius: 20px;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 40px 0px rgba(clr.$black, 0.08);
   transition: 0.2s ease-in;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 10px 10px 10px 10px rgba(clr.$primary, 0.08);
   }
 
@@ -57,6 +57,7 @@
     height: 50px;
     color: clr.$black;
     font: fw.$semibold 2.5rem ff.$lexend;
+    text-transform: capitalize;
     line-height: func.getem(25, 30);
   }
 

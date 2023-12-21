@@ -41,8 +41,8 @@ const Course = ({courses, setCourses, setSelectedCourse}) => {
 
   return (
     <>
-      <main className="section home">
-        <div className="wrapper home__wrapper">
+      <main className="home">
+        <div className="home__wrapper wrapper">
           <div className="home__text-content">
             <img className="home__bulb-image" src={bulb} alt="bulb image" />
             <div className="home__text-container">
@@ -61,20 +61,18 @@ const Course = ({courses, setCourses, setSelectedCourse}) => {
         </div>
       </main>
 
-      <section className="home__course-list" id='course-list'>
-      <div className="home__course-list-wrapper">
-        <div className="home__course-list-header-container">
-          <h2 className="home__course-list-header">Explore Our Courses</h2>
-          <p className="home__course-list-description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</p>
+      <section className="course" id='course-list'>
+        <div className="course__wrapper wrapper">
+          <div className="course__header-container">
+            <h2 className="course__header">Explore Our Courses</h2>
+            <p className="course__description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</p>
+          </div>
+          <button className="button">
+            <Link className="button-link" to="/add">Add Course</Link>
+          </button>
+          <div className="course__card-list">{courseElement}</div>
         </div>
-        <button className="button home__course-list-button">
-          <Link to="/add">Add Course</Link>
-        </button>
-        <div className="home__course-list-card-list">
-          {courseElement}
-        </div>
-      </div>
-    </section>
+      </section>
     </>
   )
 };

@@ -5,14 +5,34 @@
 @use '../tools/function' as func;
 
 .course {
-  background-color: clr.$background;
-  margin-top: 80px;
-  height: 100vh;
-
   &__wrapper {
     display: flex;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px 0 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__header-container {
+    margin-bottom: 50px;
+  }
+
+  &__header {
+    color: clr.$black;
+    font: fw.$bold 5rem ff.$lexend;
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 20px;
+    color: clr.$gray;
+    font: fw.$medium 2.2rem ff.$poppins;
+    line-height: func.getem(22, 33);
+    text-align: center;
+  }
+
+  &__card-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 30px;
   }
 }

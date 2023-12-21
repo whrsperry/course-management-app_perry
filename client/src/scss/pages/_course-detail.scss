@@ -114,8 +114,8 @@
     flex-direction: column;
     justify-content: center;
     width: 20%;
-    max-height: 500px;
-    margin-top: 160px;
+    max-height: 450px;
+    margin-top: 80px;
     padding: 0 25px;
     flex-grow: 1;
     border-radius: 10px;
@@ -124,7 +124,7 @@
 
   &__price {
     margin-bottom: 20px;
-    color: clr.$black;
+    color: clr.$orange;
     font: fw.$medium 2.4rem ff.$poppins;
   }
 
@@ -151,23 +151,12 @@
     position: relative;
     color: clr.$gray;
     font: fw.$medium 1.3rem ff.$poppins;
-
-    &--duration {
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 25px;
-        height: 25px;
-        background: url("../../assets/icons/clock-icon.png") no-repeat 100% 100%;
-      }
-    }
   }
 
   &__module-data {
     color: clr.$gray;
-    font: fw.$regular 1.3rem ff.$inter;
+    font: fw.$bold 1.3rem ff.$inter;
+    text-transform: capitalize;
     letter-spacing: -0.14px;
   }
 

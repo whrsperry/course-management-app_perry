@@ -5,8 +5,8 @@ import './scss/index.scss';
 import Header from "./components/Header";
 import Course from './pages/Course';
 import Add from './pages/Add';
-import Update from './pages/Update';
 import CourseDetail from './pages/CourseDetail';
+import Update from './pages/Update';
 
 function App() {
 
@@ -51,6 +51,10 @@ function App() {
           <Route 
             exact path="/course-detail/:id" 
             element={<CourseDetail selectedCourse={selectedCourse}/>} 
+          />
+          <Route 
+            exact path="/update/:id" 
+            element={<Update selectedCourse={selectedCourse} updateCourses={updateCourses}/>} 
           />
         </Routes>
       </Router>
