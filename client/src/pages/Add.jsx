@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Add = () => {
+const Add = ({updateCourses}) => {
 
   const [course, setCourse] = useState({
     key: "",
@@ -19,6 +19,7 @@ const Add = () => {
 
   const navigate = useNavigate();
 
+  // Handle input changes
   const handleChange = (e) => {
     setCourse(prevCourse => ({
       ...prevCourse,
@@ -26,51 +27,23 @@ const Add = () => {
     }))
   };
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post("http://localhost:8800/course", course);
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.log("Error posting new course", err);
-  //   }
-  // };
-
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post("http://localhost:8800/course", course);
-  //     const addedCourse = response.data; // Assuming the server sends back the added course
-  
-  //     // Update the state with the new course
-  //     setCourse((prevCourses) => [...prevCourses, addedCourse]);
-  
-  //     // Navigate to the home page or wherever you want to navigate
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.log("Error posting new course", err);
-  //   }
-  // };
-
-  const handleClick = async (e) => {
+  // Handle form submission
+    const handleClick = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8800/course", course);
       console.log("Server Response:", response);
   
       // Update the state with the new course
-      setCourse((prevCourses) => {
-        const updatedCourses = [...prevCourses, response.data.addedCourse];
-        console.log("Updated Courses:", updatedCourses);
-        return updatedCourses;
-      });
-  
+      updateCourses();
+
       // Navigate to the home page or wherever you want to navigate
       navigate("/");
     } catch (err) {
       console.log("Error posting new course", err);
     }
   };
+
 
   return ( 
     <div className="add section">

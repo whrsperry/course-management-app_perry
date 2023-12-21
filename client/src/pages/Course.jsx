@@ -5,21 +5,12 @@ import bulb from "../assets/home-bulb.png";
 import girl from "../assets/home-girl.png"
 import CourseCard from "../components/CourseCard";
 
-const Course = () => {
+const Course = ({courses, setCourses, setSelectedCourse}) => {
 
-  const [courses, setCourses] = useState([]);
-
-  useEffect(() => {
-    const fetchAllCourses = async () => {
-      try {
-        const res = await axios.get("http://localhost:8800/course");
-        setCourses(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAllCourses();
-  }, [courses]);
+  // Function to handle course selection
+  const handleCourseSelect = (course) => {
+    setSelectedCourse(course);
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -44,6 +35,7 @@ const Course = () => {
       language={course.language}
       handleDelete={() => handleDelete(course.id)}
       id={course.id}
+      handleCourseSelect={() => handleCourseSelect(course)}
     />
   ))
 
