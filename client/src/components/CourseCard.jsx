@@ -3,7 +3,6 @@ import lessonIcon from "../assets/icons/lesson-icon.png";
 import starsIcon from "../assets/icons/stars-icon.png";
 import studentIcon from "../assets/icons/student-icon.png";
 import arrowIcon from "../assets/icons/arrow-icon.png";
-// import CourseDetail from './CourseDetail';
 
 const CourseCard = (props) => {
 
@@ -32,8 +31,10 @@ const CourseCard = (props) => {
             <span className="course-card__student-text">200 Students</span>
           </div>
           <div className="course-card__button-container">
-            <button className='button button--update'>
-              <Link to={`/course-detail/${props.id}`}>Update Course</Link>
+            <button className='course-card__detail-button' onClick={() => {props.handleCourseSelect()}}>
+              <Link to={`/course-detail/${props.id}`}>
+                <img className="course-card__details-icon" src={arrowIcon} alt="arrow icon" />
+              </Link>
             </button>
             <button 
               className='button button--delete' 
