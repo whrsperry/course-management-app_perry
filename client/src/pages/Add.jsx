@@ -2,38 +2,50 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-const Add = ({updateCourses}) => {
-
+const Add = ({ updateCourses }) => {
   const [course, setCourse] = useState({
     key: "",
     title: "",
     description: "",
-    image: "",
     creator: "",
     lessons: "",
     duration: "",
     level: "",
     price: "",
-    language: ""
+    language: "",
   });
 
+  const [validationErrors, setValidationErrors] = useState({});
   const navigate = useNavigate();
 
   // Handle input changes
   const handleChange = (e) => {
-    setCourse(prevCourse => ({
+    setCourse((prevCourse) => ({
       ...prevCourse,
-      [e.target.name]: e.target.value
-    }))
+      [e.target.name]: e.target.value,
+    }));
+    setValidationErrors((prevErrors) => ({
+      ...prevErrors,
+      [e.target.name]: "", // Clear validation error when the user starts typing
+    }));
   };
 
   // Handle form submission
-    const handleAdd = async (e) => {
+  const handleAdd = async (e) => {
     e.preventDefault();
+
     try {
+      // Validate the form before submitting
+      const errors = validateForm();
+      if (Object.keys(errors).length > 0) {
+        // If there are validation errors, set them in the state and return
+        setValidationErrors(errors);
+        return;
+      }
+
+      // If no validation errors, proceed with form submission
       const response = await axios.post("http://localhost:8800/course", course);
-      console.log("Server Response:", response);
-  
+
       // Update the state with the new course
       updateCourses();
 
@@ -44,24 +56,51 @@ const Add = ({updateCourses}) => {
     }
   };
 
+  // Function to validate the form fields
+  const validateForm = () => {
+    const errors = {};
+    const requiredFields = [
+      "title",
+      "description",
+      "creator",
+      "lessons",
+      "duration",
+      "level",
+      "price",
+      "language",
+    ];
 
-  return ( 
+    for (const field of requiredFields) {
+      if (!course[field]) {
+        errors[field] = `Please fill out the "${field}" field.`;
+      }
+    }
+
+    return errors;
+  };
+
+  return (
     <div className="add section">
       <div className="wrapper">
         <h2 className="add__header">Add New Course</h2>
         <form className="add__form">
-          <label className="add__label" htmlFor="image">Upload Cover Image:</label>
+          {/* Removed the image input field */}
+          {/* <label className="add__label" htmlFor="image">
+            Upload Cover Image:
+          </label>
           <input
             className="add__input-text"
-            type="text"
+            type="file"
             id="image"
             name="image"
-            value={course.image}
-            onChange={handleChange}
+            accept="image/*"
+            onChange={handleImageChange}
             aria-label="Course Cover Image"
-          />
+          /> */}
 
-          <label className="add__label" htmlFor="title">Title of Course:</label>
+          <label className="add__label" htmlFor="title">
+            Title of Course:
+          </label>
           <input
             className="add__input-text"
             type="text"
@@ -73,7 +112,9 @@ const Add = ({updateCourses}) => {
             aria-label="Title of Course"
           />
 
-          <label className="add__label" htmlFor="description">Course Description:</label>
+          <label className="add__label" htmlFor="description">
+            Course Description:
+          </label>
           <textarea
             className="add__input-textarea"
             id="description"
@@ -81,10 +122,12 @@ const Add = ({updateCourses}) => {
             value={course.description}
             placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             onChange={handleChange}
-            aria-label="Lorem20" 
+            aria-label="Lorem20"
           ></textarea>
 
-          <label className="add__label" htmlFor="creator">Name of Creator:</label>
+          <label className="add__label" htmlFor="creator">
+            Name of Creator:
+          </label>
           <input
             className="add__input-text"
             type="text"
@@ -96,7 +139,9 @@ const Add = ({updateCourses}) => {
             aria-label="Name of Creator"
           />
 
-          <label className="add__label" htmlFor="price">Price:</label>
+          <label className="add__label" htmlFor="price">
+            Price:
+          </label>
           <input
             className="add__input-text"
             type="number"
@@ -108,7 +153,9 @@ const Add = ({updateCourses}) => {
             aria-label="Price"
           />
 
-          <label className="add__label" htmlFor="lessons">Number of Lessons:</label>
+          <label className="add__label" htmlFor="lessons">
+            Number of Lessons:
+          </label>
           <input
             className="add__input-text"
             type="number"
@@ -120,7 +167,9 @@ const Add = ({updateCourses}) => {
             aria-label="Number of Lessons"
           />
 
-          <label className="add__label" htmlFor="duration">Duration (in months):</label>
+          <label className="add__label" htmlFor="duration">
+            Duration (in months):
+          </label>
           <input
             className="add__input-text"
             type="number"
@@ -132,7 +181,9 @@ const Add = ({updateCourses}) => {
             aria-label="Duration"
           />
 
-          <label className="add__label" htmlFor="level">Course Level:</label>
+          <label className="add__label" htmlFor="level">
+            Course Level:
+          </label>
           <select
             className="add__input-select"
             id="level"
@@ -147,7 +198,9 @@ const Add = ({updateCourses}) => {
             <option value="advanced">Advanced</option>
           </select>
 
-          <label className="add__label" htmlFor="language">Language:</label>
+          <label className="add__label" htmlFor="language">
+            Language:
+          </label>
           <input
             className="add__input-text"
             type="text"
@@ -159,14 +212,27 @@ const Add = ({updateCourses}) => {
             aria-label="Language"
           />
 
-          <button className="button button--add" onClick={handleAdd}>Add Course</button>
-          <button className="button button--back">
-            <Link className='button-link' to="/">Back</Link>
+          <button className="button button--add" onClick={handleAdd}>
+            Add Course
           </button>
+          <button className="button button--back">
+            <Link className="button-link" to="/">
+              Back
+            </Link>
+          </button>
+
+          {/* Validation error messages */}
+          <div className="validation-errors">
+            {Object.keys(validationErrors).map((field) => (
+              <p key={field} className="error-message">
+                {validationErrors[field]}
+              </p>
+            ))}
+          </div>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Add;

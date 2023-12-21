@@ -65,3 +65,20 @@
     }
   }
 }
+
+.validation-errors {
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Style for highlighting invalid input fields */
+.add__form input:invalid,
+.add__form textarea:invalid,
+.add__form select:invalid {
+  border: 1px solid red;
+}

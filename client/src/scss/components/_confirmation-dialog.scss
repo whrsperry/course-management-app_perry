@@ -1,0 +1,56 @@
+@use '../settings/color' as clr;
+@use '../settings/font-family' as ff;
+@use '../settings/font-weight' as fw;
+@use '../tools/media-queries' as mq;
+@use '../tools/function' as func;
+
+.confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__wrapper {
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    font: fw.$bold 2rem ff.$poppins;
+    color: clr.$black;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 8px 16px;
+    color: clr.$white;
+    font: fw.$semibold 2rem ff.$poppins;
+  
+    background: clr.$primary;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+  
+    &:hover {
+      background-color: clr.$green;
+    }
+
+    &--delete {
+      margin-left: 20px;
+      background-color: clr.$gray;
+
+      &:hover {
+        background-color: clr.$orange;
+      }
+    }
+  }
+}

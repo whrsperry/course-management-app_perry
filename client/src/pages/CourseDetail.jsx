@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import profileIcon from '../assets/course-detail-profile.png';
 import stars from '../assets/icons/stars-icon.png';
+import coverImage from "../assets/course-image-1.png"
 
 const CourseDetail = (props) => {
 
@@ -42,11 +43,7 @@ const CourseDetail = (props) => {
             </div>
           </div>
           <div className="course-detail__image-container">
-            <img
-              className="course-detail__image"
-              src={image}
-              alt="course cover"
-            />
+            <img className="course-detail__image" src={coverImage} alt="course cover" />
           </div>
           <div className="course-detail__heading">
             <h3 className="course-detail__header">{title}</h3>
