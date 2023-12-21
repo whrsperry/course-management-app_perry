@@ -14,9 +14,11 @@
 @import "common/common";
 
 @import "components/header";
+@import "components/course-card";
+@import "components/confirmation-dialog";
+
 @import "pages/home";
 @import "pages/course";
 @import "pages/add";
-@import "components/course-card";
 @import "pages/course-detail";
 @import "pages/update";
