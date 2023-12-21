@@ -19,7 +19,7 @@ const CourseDetail = (props) => {
 
   return (
     <div className="course-detail">
-      <div className="course-detail__wrapper">
+      <div className="course-detail__wrapper wrapper">
         <div className="course-detail__study-content">
           <div className="course-detail__creator-content">
             <div className="course-detail__creator-container">
@@ -59,13 +59,13 @@ const CourseDetail = (props) => {
           <div className="course-detail__module-info">
             <div className="course-detail__module-wrapper">
               <span className="course-detail__module-label">
-                Number of Lessons
+                Number of Lessons:
               </span>
               <span className="course-detail__module-data">{lessons}</span>
             </div>
             <div className="course-detail__module-wrapper">
               <span className="course-detail__module-label">
-                Course Duration
+                Course Duration:
               </span>
               <span className="course-detail__module-data">
                 {duration} {duration > 1 ? "Months" : "Month"}
@@ -73,13 +73,13 @@ const CourseDetail = (props) => {
             </div>
             <div className="course-detail__module-wrapper">
               <span className="course-detail__module-label">
-                Course Level
+                Course Level:
               </span>
               <span className="course-detail__module-data">{level}</span>
             </div>
             <div className="course-detail__module-wrapper">
               <span className="course-detail__module-label">
-                Course Language
+                Course Language:
               </span>
               <span className="course-detail__module-data">{language}</span>
             </div>

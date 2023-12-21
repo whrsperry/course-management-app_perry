@@ -9,36 +9,49 @@
 
   &__wrapper {
     display: flex;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px 0 100px;
+    padding-top: 20px;
     gap: 0 40px;
+    @include mq.mxN(1280px) {
+      padding: 50px 5%;
+    }
+    @include mq.tablet {
+      flex-direction: column;
+    }
   }
 
   &__study-content {
     width: 70%;
+    @include mq.mxN(1280px) {
+      flex-grow: 1;
+    }
+    @include mq.tablet {
+      width: 100%;
+    }
   }
 
   &__heading {
     margin-bottom: 30px;
+    @include mq.tablet {
+      margin-bottom: 20px;
+    }
   }
 
   &__header {
-    margin-bottom: 25px;
     color: clr.$black;
     font: fw.$semibold 3.2rem ff.$lexend;
-  }
-
-  &__caption {
-    color: clr.$gray;
-    font: fw.$regular 2rem ff.$poppins;
+    @include mq.tablet {
+      font-size: 3rem;
+    }
+    @include mq.sp {
+      font-size: 2.8rem;
+    }
   }
 
   &__creator-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   &__creator-container {
@@ -89,6 +102,10 @@
     margin-bottom: 50px;
     width: 100%;
     height: 500px;
+    @include mq.sp {
+      margin-bottom: 20px;
+      height: 300px;
+    }
   }
 
   &__image {
@@ -101,12 +118,22 @@
     margin-bottom: 20px;
     color: clr.$black;
     font: fw.$medium 2.4rem ff.$poppins;
+    @include mq.tablet {
+      font-size: 2rem;
+    }
+    @include mq.sp {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
   }
 
   &__description {
     color: clr.$gray-4e5;
     font: fw.$regular 1.4rem ff.$poppins;
     text-align: justify;
+    @include mq.sp {
+      font-size: 1.2rem;
+    }
   }
 
   &__aside-content {
@@ -120,12 +147,24 @@
     flex-grow: 1;
     border-radius: 10px;
     box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.2);
+    @include mq.tablet {
+      width: 100%;
+      max-height: unset;
+      margin-top: 50px;
+      padding: 30px;
+    }
+    @include mq.sp {
+      margin-top: 30px;
+    }
   }
 
   &__price {
     margin-bottom: 20px;
     color: clr.$orange;
     font: fw.$medium 2.4rem ff.$poppins;
+    @include mq.sp {
+      font-size: 2rem;
+    }
   }
 
   &__border {
@@ -151,6 +190,9 @@
     position: relative;
     color: clr.$gray;
     font: fw.$medium 1.3rem ff.$poppins;
+    @include mq.sp {
+      font-size: 1.2rem;
+    }
   }
 
   &__module-data {
@@ -158,6 +200,9 @@
     font: fw.$bold 1.3rem ff.$inter;
     text-transform: capitalize;
     letter-spacing: -0.14px;
+    @include mq.sp {
+      font-size: 1.2rem;
+    }
   }
 
   &__button-wrapper {

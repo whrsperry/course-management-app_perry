@@ -7,12 +7,24 @@
 .add {
   background-color: clr.$green;
 
+  &__wrapper {
+    @include mq.tablet {
+      padding: 80px 5%;
+    }
+    @include mq.sp {
+      padding-top: 100px;
+    }
+  }
+
   &__header {
     margin: 30px 0;
     color: clr.$white;
     font: fw.$bold 5rem ff.$lexend;
     line-height: func.getem(90, 112);
     text-align: center;
+    @include mq.tablet {
+      font-size: 4rem;
+    }
   }
 
   &__form {
@@ -24,10 +36,17 @@
     background-color: clr.$background;
     border-radius: 10px;
     gap: 10px 0;
+    @include mq.tablet {
+      width: 100%;
+      padding: 30px;
+    }
   }
 
   &__label {
     font: fw.$medium 1.8rem ff.$poppins;
+    @include mq.tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__input-text {
@@ -35,6 +54,9 @@
     font: fw.$regular 1.4rem ff.$poppins;
     border: 1px solid clr.$gray;
     border-radius: 4px;
+    @include mq.tablet {
+      font-size: 1.3rem;
+    }
 
     &:focus {
       border: 2px solid clr.$green;
@@ -47,6 +69,9 @@
     font: fw.$regular 1.4rem ff.$poppins;
     border: 1px solid clr.$gray;
     border-radius: 4px;
+    @include mq.tablet {
+      font-size: 1.3rem;
+    }
 
     &:focus {
       border: 2px solid clr.$green;
@@ -72,11 +97,13 @@
 
 .error-message {
   color: red;
-  font-size: 14px;
+  font-size: 1.4rem;
   margin-bottom: 5px;
+  @include mq.tablet {
+    font-size: 1.2rem;
+  }
 }
 
-/* Style for highlighting invalid input fields */
 .add__form input:invalid,
 .add__form textarea:invalid,
 .add__form select:invalid {

@@ -9,16 +9,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include mq.mxN(1280px) {
+      padding: 50px 5%;
+    }
+    @include mq.sp {
+      padding: 30px 5% 50px;
+    }
   }
 
   &__header-container {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   &__header {
     color: clr.$black;
     font: fw.$bold 5rem ff.$lexend;
     text-align: center;
+    @include mq.tablet {
+      font-size: 4rem;
+    }
+    @include mq.sp {
+      font-size: 3rem;
+    }
   }
 
   &__description {
@@ -27,12 +39,49 @@
     font: fw.$medium 2.2rem ff.$poppins;
     line-height: func.getem(22, 33);
     text-align: center;
+    @include mq.tablet {
+      font-size: 1.8rem;
+    }
+    @include mq.sp {
+      margin-top: 10px;
+      font-size: 1.5rem;
+    }
   }
 
+  &__button {
+    @include mq.sp {
+      width: 100%;
+    }
+  }
+
+  &__card-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 2%;
+    @include mq.sp {
+      padding: 0;
+    }
+  }
+  
   &__card-list {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    padding: 30px 50px;
     gap: 30px;
+    overflow-x: auto;
+    @include mq.mxN(1280px) {
+      width: 100%;
+      align-items: center;
+      padding: 20px 3%;
+      gap: 0 3%;
+    }
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: clr.$primary;
+      border-radius: 4px;
+    }
   }
 }

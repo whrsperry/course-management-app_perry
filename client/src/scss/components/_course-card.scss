@@ -5,11 +5,17 @@
 @use '../tools/function' as func;
 
 .course-card {
-  width: 400px;
+  min-width: 400px;
   max-height: 600px;
   border-radius: 20px;
   box-shadow: 0px 0px 40px 0px rgba(clr.$black, 0.08);
   transition: 0.2s ease-in;
+  @include mq.tablet {
+    min-width: 350px;
+  }
+  @include mq.sp {
+    min-width: 300px;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -21,6 +27,9 @@
     flex-direction: column;
     padding: 25px;
     gap: 30px;
+    @include mq.tablet {
+      gap: 20px;
+    }
   }
 
   &__image-container {
@@ -28,6 +37,9 @@
     height: 250px;
     border-radius: 10px;
     overflow: hidden;
+    @include mq.tablet {
+      height: auto;
+    }
   }
 
   &__image {
@@ -51,6 +63,9 @@
   &__lesson-text {
     color: clr.$gray;
     font: fw.$regular 1.3rem ff.$poppins;
+    @include mq.sp {
+      font-size: 1.2rem;
+    }
   }
 
   &__title {
@@ -59,6 +74,9 @@
     font: fw.$semibold 2.5rem ff.$lexend;
     text-transform: capitalize;
     line-height: func.getem(25, 30);
+    @include mq.tablet {
+      font-size: 1.8rem;
+    }
   }
 
   &__buyer-info {
@@ -70,6 +88,9 @@
   &__price {
     color: clr.$orange;
     font: fw.$semibold 1.8rem ff.$lexend;
+    @include mq.tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__rating-container {
@@ -82,11 +103,17 @@
     width: 100px;
     height: 20px;
     object-fit: contain;
+    @include mq.sp {
+      width: 70px;
+    }
   }
 
   &__rating {
     color: clr.$gray;
     font: fw.$regular 1.5rem ff.$poppins;
+    @include mq.sp {
+      font-size: 1.3rem;
+    }
   }
 
   &__border {
@@ -98,13 +125,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mq.sp {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px 0;
+    }
   }
 
   &__student-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px 0;
+    @include mq.sp {
+      flex-direction: row;
+    }
   }
 
   &__student-icon {
@@ -112,16 +146,27 @@
     height: 25px;
     margin-right: 10px;
     object-fit: contain;
+    @include mq.sp {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &__student-text {
     color: clr.$gray;
     font: fw.$regular 1.4rem ff.$poppins;
+    @include mq.sp {
+      font-size: 1.2rem;
+    }
   }
 
   &__button-container {
     display: flex;
-    gap: 0 10px;
+    gap: 10px;
+    @include mq.sp {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   &__detail-button {
@@ -135,6 +180,10 @@
     background-color: clr.$primary;
     cursor: pointer;
     transition: 0.2s ease-in;
+    @include mq.sp {
+      padding: 10px;
+      width: 100%;
+    }
 
     &:hover {
       background-color: clr.$green;
@@ -145,5 +194,8 @@
     width: 25px;
     height: 20px;
     object-fit: contain;
+    @include mq.sp {
+      width: 100%;
+    }
   }
 }
