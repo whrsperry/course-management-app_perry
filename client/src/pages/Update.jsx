@@ -81,23 +81,9 @@ const Update = ({ selectedCourse, updateCourses }) => {
 
   return (
     <div className="update">
-      <div className="wrapper">
+      <div className="update__wrapper wrapper">
         <h2 className="update__header">Update Course</h2>
         <form className="update__form">
-          {/* Removed the image input field */}
-          {/* <label className="update__label" htmlFor="image">
-            Upload Cover Image:
-          </label>
-          <input
-            className="update__input-text"
-            type="text"
-            id="image"
-            name="image"
-            value={course.image}
-            onChange={handleChange}
-            aria-label="Course Cover Image"
-          /> */}
-
           <label className="update__label" htmlFor="title">
             Title of Course:
           </label>

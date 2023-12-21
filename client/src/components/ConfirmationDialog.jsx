@@ -5,7 +5,7 @@ const ConfirmationDialog = ({isOpen, onCancel, onConfirm}) => {
       <div className="confirmation">
         <div className="confirmation__wrapper">
           <p className="confirmation__text">Are you sure you want to delete this course?</p>
-          <div className="confirmation-dialog-buttons">
+          <div className="confirmation__button-wrapper">
             <button className="confirmation__button" onClick={onCancel}>Cancel</button>
             <button className="confirmation__button confirmation__button--delete" onClick={onConfirm}>Confirm</button>
           </div>

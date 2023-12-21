@@ -52,7 +52,7 @@ const Course = ({courses, setCourses, setSelectedCourse}) => {
               <p className="home__description">
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
               </p>
-              <a className='button home__button' href="#course-list">Explore Course</a>
+              <a className='button home__button' href="#course-list">Explore Courses</a>
             </div>
           </div>
           <div className="home__image-content">
@@ -67,10 +67,14 @@ const Course = ({courses, setCourses, setSelectedCourse}) => {
             <h2 className="course__header">Explore Our Courses</h2>
             <p className="course__description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</p>
           </div>
-          <button className="button">
+          <div className="course__card-wrapper">
+            <div className="course__card-list">
+              {courseElement}
+            </div>
+          </div>
+          <button className="button course__button">
             <Link className="button-link" to="/add">Add Course</Link>
           </button>
-          <div className="course__card-list">{courseElement}</div>
         </div>
       </section>
     </>

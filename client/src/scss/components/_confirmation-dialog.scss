@@ -26,6 +26,20 @@
     margin-bottom: 20px;
     font: fw.$bold 2rem ff.$poppins;
     color: clr.$black;
+    @include mq.sp {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0 10px;
+
+    @include mq.sp {
+      flex-direction: column;
+      gap: 15px 0;
+    }
   }
 
   &__button {
@@ -39,13 +53,15 @@
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in;
+    @include mq.sp {
+      font-size: 1.5rem;
+    }
   
     &:hover {
       background-color: clr.$green;
     }
 
     &--delete {
-      margin-left: 20px;
       background-color: clr.$gray;
 
       &:hover {

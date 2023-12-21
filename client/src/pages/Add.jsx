@@ -80,24 +80,10 @@ const Add = ({ updateCourses }) => {
   };
 
   return (
-    <div className="add section">
-      <div className="wrapper">
+    <div className="add">
+      <div className="add__wrapper wrapper">
         <h2 className="add__header">Add New Course</h2>
         <form className="add__form">
-          {/* Removed the image input field */}
-          {/* <label className="add__label" htmlFor="image">
-            Upload Cover Image:
-          </label>
-          <input
-            className="add__input-text"
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleImageChange}
-            aria-label="Course Cover Image"
-          /> */}
-
           <label className="add__label" htmlFor="title">
             Title of Course:
           </label>
